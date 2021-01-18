@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :albums
   resources :reviews
-  resources :scores
   resources :artists
   resources :tracks
 end
