@@ -1,0 +1,13 @@
+<h1>Create a New Album</h1>
+
+<%= form_for(@album) do |f| %>
+    <%= f.label :title, "Album Title:" %>
+    <%= f.text_field :title %><br>
+
+    <%= f.fields_for :artists do |artist| %>
+        <%= artist.label :artist_name %>
+        <%= artist.text_field :artist_name %>
+    <% end %>
+    
+    <%= f.submit %>
+<% end %>

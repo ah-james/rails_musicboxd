@@ -1,6 +1,9 @@
 <h1>Log In To Your Account</h1>
 
-<form_for>
-    <input name='username'>
-    <input type='submit' value='login'>
-</form>
+<%= form_for(:user) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Log In"%>
+<% end %>

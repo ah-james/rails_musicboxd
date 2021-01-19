@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = user.new(user_params)
+        @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(params[:id])
+        @user = User.find_by_id(params[:id])
     end
 
     def edit
