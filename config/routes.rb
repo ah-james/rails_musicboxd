@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   resources :users
-  resources :albums
+  resources :albums do
+    resources :reviews, only: :new
+  end
   resources :reviews
   resources :artists
   resources :tracks
