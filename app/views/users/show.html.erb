@@ -1,8 +1,8 @@
 <h1>Hello <%= @user.name %></h1>
 <p>Here are your albums:</p>
 
-<%= @user.albums.each do |album| %>
-    <%= album.album_title %><br>
+<% @user.albums.each do |album| %>
+   <%= link_to album.title, album_path(album) %><br>
 <% end %>
 
 <%= link_to "Create a New Album", new_album_path %>
