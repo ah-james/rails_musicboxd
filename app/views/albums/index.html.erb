@@ -1,0 +1,5 @@
+<h1>All Reviewed Albums</h1>
+
+<ol><% @albums.each do |album| %>
+    <li><%= link_to album.title, album_path(album)  %> by <%= album.artist.artist_name %></li>
+<% end %></ol>
