@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by_id(params[:id])
+        @track = Track.find_by(params[:review_id])
     end
 
     def edit

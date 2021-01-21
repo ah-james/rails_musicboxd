@@ -2,6 +2,9 @@
 
 <p><%= @review.review_text %></p>
 <br>
-<p><%= @review.score %></p><br>
+<p><%= @review.score %>/10</p>
+<br>
+<p>Favorite Tracks: <%= @track.track_title %></p>
+<br>
 
 <%= link_to "Edit Review", edit_review_path(@review) %>
