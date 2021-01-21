@@ -1,5 +1,7 @@
 <h1>Review for <%= @review.album.title %></h1>
 
-<p><%= @review.review_text %>
+<p><%= @review.review_text %></p>
 <br>
-<p><%= @review.score %>
+<p><%= @review.score %></p><br>
+
+<%= link_to "Edit Review", edit_review_path(@review) %>

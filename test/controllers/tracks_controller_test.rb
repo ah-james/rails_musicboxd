@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TracksControllerTest < ActionDispatch::IntegrationTest
+class FavoriteTracksControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

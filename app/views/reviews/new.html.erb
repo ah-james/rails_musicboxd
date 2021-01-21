@@ -5,7 +5,12 @@
     <%= f.text_area :review_text %>
     <br>
     <%= f.label :score, "Score:" %>
-    <%= f.number_field :score, in: 0.0..10.0 %>
+    <%= f.number_field :score, in: 0.0..10.0 %><br>
+
+    <%= f.fields_for :favorite_track do |a| %>
+        <%= a.label :track_title, "Favorite favorite_tracks:" %>
+        <%= a.text_field :track_title %><br>
+    <% end %>
     <br>
     <%= f.hidden_field :album_id %>
     <%= f.submit %>

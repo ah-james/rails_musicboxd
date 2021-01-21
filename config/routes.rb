@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :albums do
     resources :reviews, only: :new
   end
-  resources :reviews
+  resources :reviews do
+    resources :favorite_tracks, only: :new
+  end
   resources :artists
-  resources :tracks
+  resources :favorite_tracks
 
 
 end

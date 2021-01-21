@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
 
+    def index
+        @reviews = Review.all
+        @review = Review.find_by(params[:review_id])
+    end
+
     def new
         @album = Album.find_by_id(params[:album_id])
         @review = @album.reviews.build
@@ -17,6 +22,16 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by_id(params[:id])
+    end
+
+    def edit
+        @review = Review.find_by_id(params[:id])
+    end
+
+    def update
+        @review = Review.find_by(params[:id])
+        @review.update(review_params)
+        redirect_to review_path(@review)
     end
 
     private
