@@ -4,7 +4,7 @@
 <br>
 <p><%= @review.score %>/10</p>
 <br>
-<p>Favorite Tracks: <%= @track.track_title %></p>
+<p>Favorite Tracks: <%= @track.try(:track_title) || "No Tracks Listed" %></p>
 <br>
 
 <%= link_to "Edit Review", edit_review_path(@review) %>
