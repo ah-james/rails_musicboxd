@@ -15,4 +15,8 @@
 <% end %>
 </ul>
 
-<p><%= link_to "Create a New Review", new_review_path %></p>
+<% if params[:album_id] %>
+    <p><%= link_to "Create a New Review", new_album_review_path(@album) %></p>
+<% else %>
+    <p><%= link_to "Create a New Review", new_review_path %></p>
+<% end %>

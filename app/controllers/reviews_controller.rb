@@ -10,9 +10,11 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        @album = Album.find_by_id(params[:album_id])
-        @review = @album.reviews.build
-        @review.build_track
+        if @album = Album.find_by_id(params[:album_id])
+            @review = @album.reviews.build
+        else
+            @review = Review.new
+        end
     end
 
     def create

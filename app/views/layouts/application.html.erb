@@ -15,6 +15,7 @@
   <% if session[:user_id] %>
     <%= link_to "Logout", logout_path, method: :delete %>
     <%= link_to "Home", user_path(session[:user_id]) %>
+    <%= link_to "Create a New Album", new_album_path %>
   <% end %>
 
   <body>
