@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
     def index
         @reviews = Review.all
+        @album = Album.find_by(params[:id])
         @review = Review.find_by(params[:review_id])
     end
 

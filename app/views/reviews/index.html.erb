@@ -1,7 +1,9 @@
-<h1>All Reviews</h1>
+<h1>All Reviews for <%= @album.title %></h1>
 
-<ol>
-<% @reviews.each do |review| %>
-    <li><%= link_to review.review_text, review_path(@review) %></li>
+<ul>
+<% @album.reviews.each do |review| %>
+    <li>Review by <%= link_to review.user.name, review_path(review) %></li><br>
 <% end %>
-</ol>
+</ul>
+
+<p><%= link_to "Create a New Review", new_album_review_path %></p>

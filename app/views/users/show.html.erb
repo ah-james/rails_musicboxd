@@ -1,8 +1,20 @@
-<h1>Hello <%= @user.name %></h1>
-<p>Here are your albums:</p>
+<% if session[:user_id] == @user.id %>
+   <h1>Hello <%= @user.name %></h1><br>
+   <h3>here are your albums:</h3>
+<% else %>
+   <h1><%= @user.name %>'s Albums</h1>
+<% end %>
 
 <% @user.albums.each do |album| %>
    <%= link_to album.title, album_path(album) %><br>
 <% end %>
 
-<%= link_to "Create a New Album", new_album_path %>
+<%= link_to "Create a New Album", new_album_path %><br>
+
+<h3><%= @user.name %>'s Favorite Songs:</h3>
+
+<ul>
+<% @user.albums.each do |track| %>
+   <li><%= track.title %></li>
+<% end %>
+</ul>

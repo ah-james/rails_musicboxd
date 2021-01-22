@@ -1,9 +1,9 @@
 <h1><%= @album.title %> by <%= @album.artist.artist_name %></h1>
 
 <% @album.reviews.each do |review| %><br>
-    <%= review.review_text %><br>
-    <%= review.score %>/10<br>
+    <%= link_to review.user.name, review_path(review) %>'s review<br>
 <% end %>
 
 
-<%= link_to "Add a Review", new_album_review_path(@album.id) %>
+<%= link_to "Add a Review", new_album_review_path(@album.id) %><br>
+<%= link_to "Edit the Album", edit_album_path(@album) %>
