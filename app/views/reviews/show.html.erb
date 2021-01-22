@@ -1,4 +1,8 @@
-<h1><%= @review.user.name %>'s Review for <%= @review.album.title %></h1>
+<% if @review.user_id == session[:user_id] %>
+    <h1>Your Review for <%= @review.album.title %> by <%= @review.album.artist.artist_name %></h1>
+<% else %>
+    <h1><%= @review.user.name %>'s Review for <%= @review.album.title %> by <%= @review.album.artist.artist_name %></h1>
+<% end %>
 
 <p><%= @review.review_text %></p>
 <br>
@@ -7,4 +11,6 @@
 <p>Favorite Tracks: <%= @track.try(:track_title) || "No Tracks Listed" %></p>
 <br>
 
-<%= link_to "Edit Review", edit_review_path(@review) %>
+<% if @review.user_id == session[:user_id] %>
+    <%= link_to "Edit Review", edit_review_path(@review) %>
+<% end %>

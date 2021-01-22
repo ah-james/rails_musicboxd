@@ -1,9 +1,12 @@
 class ReviewsController < ApplicationController
 
     def index
-        @reviews = Review.all
-        @album = Album.find_by(params[:id])
-        @review = Review.find_by(params[:review_id])
+        if params[:album_id]
+            @album = Album.find_by(params[:album_id])
+            @reviews = @album.reviews
+        else
+            @reviews = Review.all
+        end
     end
 
     def new
@@ -25,7 +28,6 @@ class ReviewsController < ApplicationController
     def show
         @review = Review.find_by_id(params[:id])
         @track = @review.track
-         byebug
     end
 
     def edit
@@ -36,7 +38,6 @@ class ReviewsController < ApplicationController
     def update
         @review = Review.find_by(params[:id])
         @review.update(review_params)
-        byebug
         redirect_to review_path(@review)
     end
 

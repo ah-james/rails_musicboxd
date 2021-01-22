@@ -5,7 +5,9 @@ class Review < ApplicationRecord
     # accepts_nested_attributes_for :track
 
     def track_attributes=(track_attributes)
-        self.track.delete
+        if track
+            self.track.delete
+        end
         self.build_track(track_attributes)
     end
 end

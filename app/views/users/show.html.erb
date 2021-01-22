@@ -6,15 +6,10 @@
 <% end %>
 
 <% @user.albums.each do |album| %>
-   <%= link_to album.title, album_path(album) %><br>
+   <%= link_to album.title, review_path(album) %><br>
 <% end %>
 
 <%= link_to "Create a New Album", new_album_path %><br>
 
 <h3><%= @user.name %>'s Favorite Songs:</h3>
 
-<ul>
-<% @user.albums.each do |track| %>
-   <li><%= track.title %></li>
-<% end %>
-</ul>
