@@ -1,0 +1,13 @@
+<h1>Edit <%= @album.title %> by <%= @album.artist.artist_name %></h1>
+
+<%= form_for(@album) do |f| %>
+    <%= f.label :title, "Album Title:" %>
+    <%= f.text_field :title %><br>
+
+    <%= f.fields_for :artist do |a| %>
+        <%= a.label :artist_name, "Artist Name:" %>
+        <%= a.text_field :artist_name %><br>
+    <% end %>
+    
+    <%= f.submit %>
+<% end %>
