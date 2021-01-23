@@ -4,6 +4,20 @@
     <h1>New Album Review</h1>
 <% end %>
 
+<% if @review.errors.any? %>
+    <div id="error_explanation" %>
+        <h2>
+            <%= pluralize(@review.errors.count, "error") %>
+            prohibited this review from being saved:
+        </h2>
+        <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
 <%= form_for(@review) do |f| %>
     <%= f.label :review_text, "Review Text:" %>
     <%= f.text_area :review_text %>
