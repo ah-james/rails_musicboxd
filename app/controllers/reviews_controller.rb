@@ -21,7 +21,8 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.user_id = session[:user_id]
-        if @review.save
+        if @review.valid?
+            @review.save
             redirect_to review_path(@review)
         else
             render :new

@@ -7,5 +7,5 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :name, length: { minimum: 3 }
     validates :email, uniqueness: true
-    validates :password length: { in: 5..10}
+    validates :password, length: { in: 5..10}
 end
