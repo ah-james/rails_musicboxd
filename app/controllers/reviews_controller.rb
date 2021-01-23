@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     def new
         if @album = Album.find_by_id(params[:album_id])
             @review = @album.reviews.build
+            @review.build_track
         else
             @review = Review.new
         end
@@ -41,6 +42,11 @@ class ReviewsController < ApplicationController
         @review = Review.find_by(params[:id])
         @review.update(review_params)
         redirect_to review_path(@review)
+    end
+
+    def destroy
+        Review.destroy(params[:id])
+        redirect_to review_path
     end
 
     private

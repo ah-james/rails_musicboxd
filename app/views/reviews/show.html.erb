@@ -13,4 +13,6 @@
 
 <% if @review.user_id == session[:user_id] %>
     <%= link_to "Edit Review", edit_review_path(@review) %>
+    <br>
+    <%= link_to "Delete Review", review_path(@review), method: :delete %>
 <% end %>
