@@ -12,6 +12,7 @@
 
   <%= link_to "View All Albums", albums_path(@album) %> 
   <%= link_to "View All Users", users_path(@user) %>
+  <%= link_to "View All Reviews", reviews_path(@review) %>
   <% if session[:user_id] %>
     <%= link_to "Logout", logout_path, method: :delete %>
     <%= link_to "Home", user_path(session[:user_id]) %>
