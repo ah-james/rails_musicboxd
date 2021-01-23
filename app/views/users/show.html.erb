@@ -11,6 +11,23 @@
 
 <%= link_to "Create a New Album", new_album_path %><br>
 
-<h3><%= @user.name %>'s Favorite Songs:</h3>
 
+<% if session[:user_id] == @user.id %>
+   <h3>Your Favorite Songs:</h3>
+<% else %>
+   <h3><%= @user.name %>'s Favorite Songs:</h3>
+<% end %>
+
+<ul>
+<% @user.tracks.each do |track| %>
+   <li><%= track.track_title %></li>
+<% end %>
+</ul>
+
+
+<% if session[:user_id] == @user.id %>
+   <h3>Your Highest Rated Albums:</h3>
+<% else %>
+   <h3><%= @user.name %>'s Highest Rated Albums:</h3>
+<% end %>
 
