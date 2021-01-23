@@ -6,11 +6,10 @@
 
 <ul>
 <% @reviews.each do |review| %>
-    <li>Review by <%= link_to review.user.name, review_path(review) %>
     <% if params[:album_id] %>
-        </li><br>
+        <li>Review by <%= link_to review.user.name, review_path(review) %></li><br>
     <% else %>
-        for <%= review.album.title %></li><br>
+        <li>Review by <%= link_to review.user.name, review_path(review) %> for <%= review.album.title %></li><br>
     <% end %>
 <% end %>
 </ul>

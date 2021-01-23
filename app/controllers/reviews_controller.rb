@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
     def index
         if params[:album_id]
-            @album = Album.find_by(params[:album_id])
+            @album = Album.find_by_id(params[:album_id])
             @reviews = @album.reviews
         else
             @reviews = Review.all
