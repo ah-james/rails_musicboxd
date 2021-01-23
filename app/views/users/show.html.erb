@@ -5,12 +5,14 @@
    <h1><%= @user.name %>'s Albums</h1>
 <% end %>
 
-<% @user.albums.each do |album| %>
-   <%= link_to album.title, review_path(album) %><br>
+<% @reviews.each do |review| %>
+   <%= link_to review.album.title, review_path(review) %><br>
 <% end %>
 
-<%= link_to "Create a New Album", new_album_path %><br>
-
+<% if session[:user_id] == @user.id %>
+   <%= link_to "Create a New Album", new_album_path %><br>
+   <%= link_to "Delete User", user_path(@user), method: :delete %>
+<% end %>
 
 <% if session[:user_id] == @user.id %>
    <h3>Your Favorite Songs:</h3>

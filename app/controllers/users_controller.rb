@@ -21,15 +21,12 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by_id(params[:id])
-    end
-
-    def edit
-    end
-
-    def update
+        @reviews = @user.reviews
     end
 
     def destroy
+        User.destroy(params[:id])
+        redirect_to '/'
     end 
 
     private
