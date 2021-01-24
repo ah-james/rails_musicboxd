@@ -13,14 +13,17 @@ class SessionsController < ApplicationController
         else
             redirect_to login_path
         end
-        # @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        #     u.name = auth['info']['name']
-        #     u.email = auth['info']['email']
-        # end
-      
-        # session[:user_id] = @user.id
+    end
 
-        # redirect_to login_path
+    def omniauth
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.password = SecureRandom.hex(16)
+          end
+      
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
 
     def destroy

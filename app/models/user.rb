@@ -7,5 +7,4 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :name, format: { without: /[0-9]/ }
     validates :email, uniqueness: true
-    validates :password, length: { in: 5..10}
 end

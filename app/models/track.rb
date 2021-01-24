@@ -1,6 +1,5 @@
 class Track < ApplicationRecord
     belongs_to :review
-    belongs_to :user
     before_save :make_title_case
 
     private
