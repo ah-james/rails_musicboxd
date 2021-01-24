@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
     end
 
     def edit
-        @album = Album.find_by(params[:id])
+        @album = Album.find_by_id(params[:id])
     end
 
     def update

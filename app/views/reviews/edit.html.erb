@@ -1,5 +1,4 @@
 <h1>Edit the Review For <%= @review.album.title %></h1>
 
-<%= form_for @review do |f| %>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-<% end %>
+
+    <%= render 'form' %>

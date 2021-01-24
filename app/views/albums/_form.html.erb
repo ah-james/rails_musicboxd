@@ -1,9 +1,24 @@
-<%= f.label :title, "Album Title:" %>
-<%= f.text_field :title %>
-<br>
-<%= f.fields_for :artist do |a| %>
-    <%= a.label :artist_name, "Artist Name:" %>
-    <%= a.text_field :artist_name %>
+<%= form_for @album do |f| %>
+    <% if @album.errors.any? %>
+        <div id="error_explanation" %>
+            <h2>
+                <%= pluralize(@album.errors.count, "error") %>
+                prohibited this album from being saved:
+            </h2>
+            <ul>
+            <% @album.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.label :title, "Album Title:" %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.fields_for :artist do |a| %>
+        <%= a.label :artist_name, "Artist Name:" %>
+        <%= a.text_field :artist_name %>
+    <% end %>
+    <br>
+    <%= f.submit %>
 <% end %>
-<br>
-<%= f.submit %>
