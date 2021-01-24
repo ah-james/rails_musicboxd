@@ -22,7 +22,7 @@
 
 <ul>
 <% @user.tracks.each do |track| %>
-   <li><%= track.track_title %></li>
+   <li><%= track.track_title %> by <%= track.review.album.artist.artist_name %></li>
 <% end %>
 </ul>
 
