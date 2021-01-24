@@ -23,8 +23,8 @@
     <%= f.text_area :review_text %>
     <br>
     <%= f.label :score, "Score:" %>
-    <%= f.number_field :score, in: 0.0..10.0 %><br>
-
+    <%= f.number_field :score, in: 0.0..10.0 %>
+    <br>
     <%= f.fields_for :track do |a| %>
         <%= a.label :track_title, "Favorite Tracks:" %>
         <%= a.text_field :track_title %><br>

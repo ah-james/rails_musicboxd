@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
             @review.build_track
         else
             @review = Review.new
+            @review.build_track
         end
     end
 
@@ -53,6 +54,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:review_text, :score, :album_id, track_attributes: [:track_title])
+        params.require(:review).permit(:review_text, :score, :album_id, track_attributes: [:track_title, :review_id, :user_id])
     end
 end
