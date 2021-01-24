@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
     def new
         if @album = Album.find_by_id(params[:album_id])
+            @album = Album.find_by_id(params[:album_id])
             @review = @album.reviews.build
             @review.build_track
         else

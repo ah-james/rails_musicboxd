@@ -1,17 +1,5 @@
 <h1>Edit the Review For <%= @review.album.title %></h1>
 
 <%= form_for @review do |f| %>
-    <%= f.label :review_text, "Review Text:" %>
-    <%= f.text_area :review_text %>
-    <br>
-    <%= f.label :score, "Score:" %>
-    <%= f.number_field :score, in: 0.0..10.0 %><br>
-
-    <%= f.fields_for :track do |a| %>
-        <%= a.label :track_title, "Favorite Tracks:" %>
-        <%= a.text_field :track_title %><br>
-    <% end %>
-    <br>
-    <%= f.hidden_field :album_id %>
-    <%= f.submit %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
