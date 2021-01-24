@@ -1,4 +1,4 @@
 <h1>Edit the Review For <%= @review.album.title %></h1>
 
-
-    <%= render 'form' %>
+<%= render partial: 'layouts/errors', locals: { object: @review } %>
+<%= render 'form' %>

@@ -1,3 +1,5 @@
 <h1>Create a New Album</h1>
 
-    <%= render "form" %>
+<%= render partial: 'layouts/errors', locals: { object: @album } %>
+
+<%= render "form" %>

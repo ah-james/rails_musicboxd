@@ -1,3 +1,4 @@
 <h1>Edit <%= @album.title %> by <%= @album.artist.artist_name %></h1>
 
-    <%= render "form" %>
+<%= render partial: 'layouts/errors', locals: { object: @album } %>
+<%= render "form" %>
