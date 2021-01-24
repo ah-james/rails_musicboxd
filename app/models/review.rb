@@ -7,6 +7,8 @@ class Review < ApplicationRecord
     validates :score, presence: true
     validates :score, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10}
 
+    scope :order_by_highest_score, -> {order('score desc')}
+
     def track_attributes=(track_attributes)
         if track
             self.track.delete

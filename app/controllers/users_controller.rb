@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by_id(params[:id])
-        @reviews = @user.reviews
+        @reviews = @user.reviews.order_by_highest_score
     end
 
     def destroy

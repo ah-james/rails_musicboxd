@@ -3,9 +3,9 @@ class ReviewsController < ApplicationController
     def index
         if params[:album_id]
             @album = Album.find_by_id(params[:album_id])
-            @reviews = @album.reviews
+            @reviews = @album.reviews.order_by_highest_score
         else
-            @reviews = Review.all
+            @reviews = Review.order_by_highest_score
         end
     end
 
