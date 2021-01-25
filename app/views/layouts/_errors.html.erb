@@ -4,10 +4,9 @@
         <%= pluralize(object.errors.count, "error") %>
         prohibited this object from being saved:
     </h2>
-    <ul>
+    
     <% object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <h3><%= msg %></h3>
     <% end %>
-    </ul>
 </div>
 <% end %>

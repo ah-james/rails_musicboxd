@@ -1,24 +1,24 @@
-<%= user_show_header %>
+<%= user_show_header %><br>
 
-<ol>
+
 <% @reviews.each do |review| %>
-   <li><%= link_to review.album.title, review_path(review) %></li><br>
+   <h4><%= link_to review.album.title, review_path(review) %></h4><br>
 <% end %>
-</ol>
+<br>
 <% if login_check %>
-   <%= link_to "Create a New Album", new_album_path %><br>
+   <p><%= link_to "Create a New Album", new_album_path %></p><br>
 <% end %>
 
-<%= user_show_songs %>
+<%= user_show_songs %><br>
 
 
-<ul>
+
 <% @user.tracks.each do |track| %>
-   <li><%= track.track_title %> by <%= track.review.album.artist.artist_name %></li>
+   <h5><%= track.track_title %> by <%= track.review.album.artist.artist_name %></h5>
 <% end %>
-</ul>
+
 
 <% if creator_check %>
-   <%= link_to "Delete User", user_path(@user), method: :delete %>
+   <br><%= link_to "Delete User", user_path(@user), method: :delete %>
 <% end %>
 

@@ -1,16 +1,15 @@
 <%= review_index_header %>
+<br>
 
 
-<ul>
 <% @reviews.each do |review| %>
     <% if params[:album_id] %>
-        <li>Review by <%= link_to review.user.name, review_path(review) %></li><br>
+        <h4>Review by <%= link_to review.user.name, review_path(review) %><br></h4>
     <% else %>
-        <li>Review by <%= review.user.name %> for <%= link_to review.album.title, review_path(review) %></li><br>
+        <h4>Review by <%= review.user.name %> for <%= link_to review.album.title, review_path(review) %></h4><br>
     <% end %>
 <% end %>
-</ul>
-
+<br>
 <% if params[:album_id] %>
     <p><%= link_to "Create a New Review", new_album_review_path(@album) %></p>
 <% else %>
