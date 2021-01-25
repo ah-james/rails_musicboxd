@@ -5,7 +5,7 @@
    <li><%= link_to review.album.title, review_path(review) %></li><br>
 <% end %>
 </ol>
-<% if session[:user_id] == @user.id %>
+<% if login_check %>
    <%= link_to "Create a New Album", new_album_path %><br>
 <% end %>
 
@@ -18,7 +18,7 @@
 <% end %>
 </ul>
 
-<% if session[:user_id] == @user.id %>
+<% if login_check %>
    <%= link_to "Delete User", user_path(@user), method: :delete %>
 <% end %>
 

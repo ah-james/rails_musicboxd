@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by_id(params[:id])
+        @user = User.find(@review.user_id)
         @track = @review.track
     end
 

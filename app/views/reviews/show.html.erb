@@ -7,7 +7,7 @@
 <p>Favorite Tracks: <%= @track.try(:track_title) || "No Tracks Listed" %></p>
 <br>
 
-<% if @review.user_id == session[:user_id] %>
+<% if login_check %>
     <%= link_to "Edit Review", edit_review_path(@review) %>
     <br>
     <%= link_to "Delete Review", review_path(@review), method: :delete %>
