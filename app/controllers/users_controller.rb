@@ -10,13 +10,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.valid?
-            @user.save
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
-        else
-            render :new
-        end
+        valid_user_check
     end
 
     def show
@@ -33,5 +27,15 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name, :email, :password)
+    end
+
+    def valid_user_check
+        if @user.valid?
+            @user.save
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else
+            render :new
+        end
     end
 end

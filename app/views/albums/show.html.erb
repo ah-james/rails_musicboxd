@@ -4,6 +4,7 @@
     <%= link_to review.user.name, review_path(review) %>'s review<br>
 <% end %>
 
-
-<%= link_to "Add a Review", new_album_review_path(@album.id) %><br>
-<%= link_to "Edit the Album", edit_album_path(@album) %>
+<% if login_check %>
+    <%= link_to "Add a Review", new_album_review_path(@album.id) %><br>
+    <%= link_to "Edit the Album", edit_album_path(@album) %>
+<% end %>
