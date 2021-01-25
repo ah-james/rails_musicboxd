@@ -1,8 +1,4 @@
-<% if params[:album_id] %>
-    <h1>New Album Review for <%= @album.title %></h1>
-<% else %>
-    <h1>New Album Review</h1>
-<% end %>
+<%= review_new_header %>
 
 <%= render partial: 'layouts/errors', locals: { object: @review } %>
 <%= render 'form' %>

@@ -1,8 +1,4 @@
-<% if @review.user_id == session[:user_id] %>
-    <h1>Your Review for <%= @review.album.title %> by <%= @review.album.artist.artist_name %></h1>
-<% else %>
-    <h1><%= @review.user.name %>'s Review for <%= @review.album.title %> by <%= @review.album.artist.artist_name %></h1>
-<% end %>
+<%= review_show_header %>
 
 <p><%= @review.review_text %></p>
 <br>

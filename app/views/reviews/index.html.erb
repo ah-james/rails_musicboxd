@@ -1,8 +1,5 @@
-<% if params[:album_id] %>
-    <h1>All Reviews for <%= @album.title %> by <%= @album.artist.artist_name %></h1>
-<% else %>
-    <h1>All Reviews</h1>
-<% end %>
+<%= review_index_header %>
+
 
 <ul>
 <% @reviews.each do |review| %>

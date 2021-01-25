@@ -1,28 +1,24 @@
-<% if session[:user_id] == @user.id %>
-   <h1>Hello <%= @user.name %></h1><br>
-   <h3>here are your albums:</h3>
-<% else %>
-   <h1><%= @user.name %>'s Albums</h1>
-<% end %>
+<%= user_show_header %>
 
+<ol>
 <% @reviews.each do |review| %>
-   <%= link_to review.album.title, review_path(review) %><br>
+   <li><%= link_to review.album.title, review_path(review) %></li><br>
 <% end %>
-
+</ol>
 <% if session[:user_id] == @user.id %>
    <%= link_to "Create a New Album", new_album_path %><br>
-   <%= link_to "Delete User", user_path(@user), method: :delete %>
 <% end %>
 
-<% if session[:user_id] == @user.id %>
-   <h3>Your Favorite Songs:</h3>
-<% else %>
-   <h3><%= @user.name %>'s Favorite Songs:</h3>
-<% end %>
+<%= user_show_songs %>
+
 
 <ul>
 <% @user.tracks.each do |track| %>
    <li><%= track.track_title %> by <%= track.review.album.artist.artist_name %></li>
 <% end %>
 </ul>
+
+<% if session[:user_id] == @user.id %>
+   <%= link_to "Delete User", user_path(@user), method: :delete %>
+<% end %>
 
