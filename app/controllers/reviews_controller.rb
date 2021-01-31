@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     end
 
     def new
+        require_login
         if @album = Album.find_by_id(params[:album_id])
             @album = Album.find_by_id(params[:album_id])
             @review = @album.reviews.build
@@ -21,6 +22,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
+        require_login
         @review = Review.new(review_params)
         @review.user_id = session[:user_id]
         if @review.valid?
@@ -38,11 +40,13 @@ class ReviewsController < ApplicationController
     end
 
     def edit
+        require_login
         @review = Review.find_by_id(params[:id])
         @review.build_track unless @review.track
     end
 
     def update
+        require_login
         @review = Review.find_by_id(params[:id])
         @review.update(review_params)
         if @review.valid?
@@ -53,6 +57,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        require_login
         @review = Review.find(params[:id])
         @review.destroy
         redirect_to reviews_path

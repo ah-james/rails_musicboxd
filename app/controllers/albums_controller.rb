@@ -1,14 +1,17 @@
 class AlbumsController < ApplicationController
+
     def index
         @albums = Album.order_by_artist_name
     end
     
     def new
+        require_login
         @album = Album.new
         @album.build_artist
     end
 
     def create
+        require_login
         @album = Album.new(album_params)
         if @album.valid?
             @album.save
@@ -23,10 +26,12 @@ class AlbumsController < ApplicationController
     end
 
     def edit
+        require_login
         @album = Album.find_by_id(params[:id])
     end
 
     def update
+        require_login
         @album = Album.find_by(params[:id])
         @album.update(album_params)
         if @album.valid?
@@ -37,6 +42,7 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
+        require_login
         Album.destroy(params[:id])
         redirect_to album_path
     end
