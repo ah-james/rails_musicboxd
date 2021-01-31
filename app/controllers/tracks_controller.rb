@@ -1,2 +1,2 @@
-class FavoriteTracksController < ApplicationController
+class TracksController < ApplicationController
 end

@@ -23,7 +23,12 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.user_id = session[:user_id]
-        valid_review_check
+        if @review.valid?
+            @review.save
+            redirect_to review_path(@review)
+        else
+            render :new
+        end
     end
 
     def show
@@ -40,7 +45,11 @@ class ReviewsController < ApplicationController
     def update
         @review = Review.find_by_id(params[:id])
         @review.update(review_params)
-        redirect_to review_path(@review)
+        if @review.valid?
+            redirect_to review_path(@review)
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -53,14 +62,5 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:review_text, :score, :album_id, track_attributes: [:track_title])
-    end
-
-    def valid_review_check
-        if @review.valid?
-            @review.save
-            redirect_to review_path(@review)
-        else
-            render :new
-        end
     end
 end

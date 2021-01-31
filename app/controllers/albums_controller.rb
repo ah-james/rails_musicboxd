@@ -10,7 +10,12 @@ class AlbumsController < ApplicationController
 
     def create
         @album = Album.new(album_params)
-        valid_album_check
+        if @album.valid?
+            @album.save
+            redirect_to album_path(@album)
+        else
+            render :new
+        end
     end
 
     def show
@@ -24,7 +29,11 @@ class AlbumsController < ApplicationController
     def update
         @album = Album.find_by(params[:id])
         @album.update(album_params)
-        redirect_to album_path(@album)
+        if @album.valid?
+            redirect_to album_path(@album)
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -36,14 +45,5 @@ class AlbumsController < ApplicationController
 
     def album_params
         params.require(:album).permit(:title, :artist_id, artist_attributes: [:artist_name])
-    end
-
-    def valid_album_check
-        if @album.valid?
-            @album.save
-            redirect_to album_path(@album)
-        else
-            render :new
-        end
     end
 end
