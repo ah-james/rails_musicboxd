@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
     def new
         require_login
         if @album = Album.find_by_id(params[:album_id])
-            @album = Album.find_by_id(params[:album_id])
             @review = @album.reviews.build
             @review.build_track
         else

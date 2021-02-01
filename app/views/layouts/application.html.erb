@@ -9,14 +9,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-    <% if session[:user_id] %>
-      <%= link_to "Logout", logout_path, method: :delete %>
-      <%= link_to "Home", user_path(session[:user_id]) %>
-      <%= link_to "Create a New Album", new_album_path %>
-    <% else %>
-      <%= link_to "Home", '/' %>
-    <% end %>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">

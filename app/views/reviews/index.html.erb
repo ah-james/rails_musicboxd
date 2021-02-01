@@ -6,7 +6,7 @@
     <% if params[:album_id] %>
         <h4>Review by <%= link_to review.user.name, review_path(review) %><br></h4>
     <% else %>
-        <h4>Review for <%= link_to review.album.title, review_path(review) %></h4><br>
+        <h4>Review for <%= link_to review.album.title, review_path(review) %> by <%= review.user.name %></h4><br>
     <% end %>
 <% end %>
 <br>
