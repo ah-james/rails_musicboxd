@@ -1,24 +1,24 @@
-# README
+# Musicboxd
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Musicboxd is an MVC social media application built with Ruby on Rails used to review your favorite albums by your favorite artists, and see what your friends are listening to.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+- This application is run using Ruby
+- Fork and Clone this repository
+- after cloning and changing your directory to rails-musicboxd install the Gemfile using
 
-* System dependencies
+```bundle install```
 
-* Configuration
+## Usage
 
-* Database creation
+Input ``` rails s ``` in your terminal to create a local server. Once running, go to your browser of choice and go to:
 
-* Database initialization
+```http://localhost:3000```
 
-* How to run the test suite
+When you see the welcome page, choose "sign up" to create an account and begin building your album reviews!
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Deployment instructions
-
-* ...
+Please make sure to update tests as appropriate.
